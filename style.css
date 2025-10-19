@@ -1,0 +1,302 @@
+/* --- Cài đặt chung & Nền động Pastel --- */
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ffd6e0, #fff0f5, #ffeaf4, #ffd6e0);
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
+  z-index: -1;
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --- Màn hình & Container --- */
+.screen {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.screen.active {
+  display: flex;
+  animation: fadeInScreen 0.5s ease-in-out;
+}
+@keyframes fadeInScreen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 550px;
+}
+h1,
+h2 {
+  font-family: "Playwrite AU TAS", cursive;
+  color: #d6336c;
+}
+
+/* --- Nút bấm --- */
+button {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: #f06292;
+  color: white;
+  margin: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(240, 98, 146, 0.4);
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(240, 98, 146, 0.6);
+}
+.hidden {
+  display: none !important;
+}
+
+/* --- CSS cho Slideshow --- */
+/* --- CSS cho Slideshow --- */
+#slideshow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+.slideshow-content {
+  position: relative;
+  width: 80vw;
+  max-width: 800px;
+  display: flex; /* Thêm flexbox để căn giữa ảnh */
+  justify-content: center;
+  align-items: center;
+}
+.slide {
+  width: 100%;
+  max-height: 90vh; /* Giới hạn chiều cao để ảnh dọc không quá dài */
+  border-radius: 15px;
+  display: none;
+  animation: fadeIn 0.5s;
+
+  /* === ĐIỀU CHỈNH QUAN TRỌNG ĐỂ ẢNH DỌC KHÔNG BỊ CẮT === */
+  object-fit: contain; /* Giữ nguyên tỷ lệ và hiển thị toàn bộ ảnh */
+  background-color: #fce4ec; /* Màu nền cho phần trống nếu ảnh không full khung */
+  /* ======================================================= */
+}
+.slide.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideshow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.slideshow-nav.prev {
+  left: -60px;
+}
+.slideshow-nav.next {
+  right: -60px;
+}
+.slideshow-close {
+  position: absolute;
+  top: -60px;
+  right: -20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideshow-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.slideshow-nav.prev {
+  left: -60px;
+}
+.slideshow-nav.next {
+  right: -60px;
+}
+.slideshow-close {
+  position: absolute;
+  top: -60px;
+  right: -20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+/* --- Phong bì Animation Mở --- */
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #ffc2d1;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.envelope.open {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #fb6f92;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 0.8s 0.2s;
+}
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+.envelope .body {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #ffc2d1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* --- Nội dung cuối cùng --- */
+.final-content {
+  opacity: 0;
+  transition: opacity 1s 1s;
+} /* Sẽ hiện ra sau 1s */
+.final-content.visible {
+  opacity: 1;
+}
+.letter-card {
+  background: #fff;
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  width: 500px;
+  min-height: 200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#letter-text {
+  font-size: 1.2em;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+/* --- Thêm CSS cho hiệu ứng tim rơi --- */
+.heart-fall {
+  position: fixed;
+  top: -10vh; /* Bắt đầu từ bên trên màn hình */
+  font-size: 20px;
+  color: #ff8fab;
+  pointer-events: none; /* Để không click vào tim được */
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh); /* Rơi xuống dưới màn hình */
+  }
+}
+/* --- Thêm CSS cho hiệu ứng tim rơi --- */
+.heart-fall {
+  position: fixed;
+  top: -10vh; /* Bắt đầu từ bên trên màn hình */
+  font-size: 20px;
+  color: #ff8fab;
+  pointer-events: none; /* Để không click vào tim được */
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh); /* Rơi xuống dưới màn hình */
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gửi Em, Điều Tuyệt Vời Nhất 💖</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background-animation"></div>
+
+    <div id="start-screen" class="screen active">
+      <div class="container">
+        <h1>Gửi Tăng Hồ Anh Thơ</h1>
+        <p class="subtitle">Một món quà nhỏ cho ngày 20/10</p>
+        <button id="start-btn">🎁 Mở quà 🎁</button>
+      </div>
+    </div>
+
+    <div id="quiz-screen" class="screen">
+      <div class="container">
+        <h2>Mel mel cho một câu hỏi nhỏ nhé...</h2>
+        <p>Nếu hôm nay là 20/10 mel muốn em làm gì nhất?</p>
+        <div class="options">
+          <button class="option">🌹 Tặng một đóa hồng thật to</button>
+          <button class="option">🎠 Cùng nhau đi dạo khắp phố phường</button>
+          <button class="option">
+            🍳 Ăn một bữa tối do em nấu... (không có đau bụng)
+          </button>
+        </div>
+        <button id="secret-letter-btn" class="hidden">
+          Có điều bất ngờ đang chờ ... 💌
+        </button>
+      </div>
+    </div>
+
+    <div id="slideshow-container" class="screen">
+      <div class="slideshow-content">
+        <img src="photo1.jpg" class="slide active" alt="Ảnh 1" />
+        <img src="photo2.jpg" class="slide" alt="Ảnh 2" />
+        <img src="photo3.jpg" class="slide" alt="Ảnh 3" />
+        <button class="slideshow-nav prev">&lt;</button>
+        <button class="slideshow-nav next">&gt;</button>
+        <button class="slideshow-close">Xem thư bí mật X</button>
+      </div>
+    </div>
+
+    <div id="letter-screen" class="screen">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="body"></div>
+      </div>
+      <div id="final-content" class="final-content hidden">
+        <div class="letter-card">
+          <p id="letter-text"></p>
+        </div>
+      </div>
+    </div>
+
+    <audio id="background-music" src="background-music.mp3" loop></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
